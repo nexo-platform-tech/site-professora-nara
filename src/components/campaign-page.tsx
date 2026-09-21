@@ -1,11 +1,9 @@
 import { motion, useAnimationControls, useReducedMotion, type Variants } from "motion/react";
 import { useEffect, useState } from "react";
-import { ArrowDown, ArrowRight, AtSign, Instagram, type LucideIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { ArrowDown, AtSign, Instagram, type LucideIcon } from "lucide-react";
 import candidatePhotoAsset from "@/assets/Nara_5.png";
 import classroomPhotoAsset from "@/assets/educacao-antirracista.png";
 import manifestoPhotoAsset from "@/assets/nara-manifesto.png";
-import manifestoGraphicAsset from "@/assets/manifesto-grafico.png";
 import naraStickerAsset from "@/assets/figurinha-nara-rede.png";
 import fistPencilIconAsset from "@/assets/icone-punho-lapis-creme.png";
 import personIconAsset from "@/assets/icone-pessoa.png";
@@ -37,14 +35,6 @@ function Reveal({ children, className = "" }: { children: React.ReactNode; class
   );
 }
 
-function SupportButton({ compact = false }: { compact?: boolean }) {
-  return (
-    <Button asChild className={`rounded-full bg-pink font-bold text-graphite shadow-none hover:bg-pink/90 focus-visible:ring-2 focus-visible:ring-deep-blue ${compact ? "h-10 px-5 text-sm" : "h-12 px-7 text-base"}`}>
-      <a href="#apoie">Quero apoiar <ArrowRight aria-hidden="true" /></a>
-    </Button>
-  );
-}
-
 function PhotoPlaceholder({ label, variant = "photo" }: { label: string; variant?: "photo" | "illustration" }) {
   return (
     <div className={`relative grid h-full min-h-72 w-full place-items-center overflow-hidden border-2 border-deep-blue/30 ${variant === "illustration" ? "bg-cream/10 text-cream" : "bg-pink/15 text-deep-blue"}`} role="img" aria-label={label}>
@@ -62,7 +52,7 @@ function PhotoPlaceholder({ label, variant = "photo" }: { label: string; variant
 }
 
 const navLinks = [
-  { label: "Sobre", href: "#sobre" },
+  { label: "Sobre", href: "#inicio" },
   { label: "Trajetória", href: "#trajetoria" },
   { label: "Mandato", href: "#mandato" },
 ];
@@ -94,9 +84,6 @@ function Header() {
             ))}
           </ul>
         </nav>
-        <div className="flex shrink-0 justify-end px-4 py-3 lg:items-center lg:px-0 lg:py-0">
-          <SupportButton compact />
-        </div>
       </div>
     </header>
   );
@@ -115,7 +102,6 @@ function Hero() {
             Vereadora do diálogo, da educação pública, da educação antirracista, dos territórios e do cuidado com as pessoas.
           </motion.p>
           <motion.div variants={rise} className="mt-8 flex items-center gap-5">
-            <SupportButton />
             <a href="#mandato" className="inline-flex items-center gap-2 text-sm font-bold text-deep-blue transition-colors duration-200 hover:text-pink-deep">Conheça minha história <ArrowDown className="size-4" aria-hidden="true" /></a>
           </motion.div>
         </motion.div>
@@ -306,34 +292,6 @@ function Manifesto() {
   );
 }
 
-function Support() {
-  return (
-    <section id="apoie" className="scroll-mt-48 bg-cream px-4 py-16 sm:px-6 md:py-24 lg:scroll-mt-20 lg:px-10">
-      <div className="mx-auto grid max-w-7xl gap-16 lg:grid-cols-2 lg:items-stretch">
-        <Reveal>
-          <p className="text-sm font-black uppercase text-green">Faça parte</p>
-          <h2 className="mt-3 text-4xl leading-tight text-deep-blue sm:text-6xl"><span className="font-light">Minas é nossa! </span><span className="font-black">
-            E eu conto com você.</span></h2>
-          <form className="mt-10 grid gap-5" onSubmit={(event) => event.preventDefault()}>
-            <label className="grid gap-2 text-sm font-bold text-graphite">Nome completo<input required name="nome" autoComplete="name" className="h-13 rounded-none border-2 border-graphite bg-transparent px-4 text-base outline-none transition-colors focus:border-pink" /></label>
-            <label className="grid gap-2 text-sm font-bold text-graphite">WhatsApp<input required name="telefone" type="tel" autoComplete="tel" className="h-13 rounded-none border-2 border-graphite bg-transparent px-4 text-base outline-none transition-colors focus:border-pink" /></label>
-            <label className="flex items-start gap-3 text-sm font-medium text-graphite"><input required type="checkbox" className="mt-1 size-4 accent-pink" /> Aceito receber novidades da campanha e autorizo o uso dos dados para esse contato.</label>
-            <Button type="submit" className="h-13 justify-between rounded-none bg-pink px-6 text-base font-black text-graphite shadow-none transition-colors hover:bg-orange-red focus-visible:ring-2 focus-visible:ring-deep-blue">Eu apoio a Nara <ArrowRight aria-hidden="true" /></Button>
-          </form>
-        </Reveal>
-        <Reveal className="-mx-4 flex items-center justify-center bg-cream p-0 sm:-mx-6 lg:relative lg:mx-0 lg:min-h-0 lg:overflow-hidden">
-          <img
-            src={manifestoGraphicAsset}
-            alt="Composição tipográfica em blocos coloridos que se encaixam, contendo as palavras-chave da campanha: Cuidado, Escuta, Transformação, Educação, Responsabilidade, Trabalho e Compromisso. Ao centro, a frase 'Nara, uma professora para Minas', finalizando com a palavra Confiança em destaque."
-            loading="lazy"
-            className="h-auto w-full object-contain lg:absolute lg:inset-0 lg:h-full"
-          />
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function Footer() {
   return (
     <footer className="bg-deep-blue px-4 py-10 text-center text-cream">
@@ -354,5 +312,5 @@ function Footer() {
 }
 
 export function CampaignPage() {
-  return <div className="min-h-screen overflow-x-hidden bg-cream font-sans"><Header /><main><Hero /><DoubleMarquee /><Mandate /><Journey /><AntiRacistEducation /><TerritoryCare /><Manifesto /><Support /></main><Footer /></div>;
+  return <div className="min-h-screen overflow-x-hidden bg-cream font-sans"><Header /><main><Hero /><DoubleMarquee /><Mandate /><Journey /><AntiRacistEducation /><TerritoryCare /><Manifesto /></main><Footer /></div>;
 }
