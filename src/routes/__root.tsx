@@ -78,6 +78,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { name: "author", content: "Professora Nara" },
+      { title: "Professora Nara — A professora da quebrada" },
+      { name: "description", content: "Acompanhe a campanha de Professora Nara. Vote 18018." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://professoradaquebrada.com.br/" },
+      { property: "og:title", content: "Professora Nara — A professora da quebrada" },
+      { property: "og:description", content: "Uma professora para Minas. Vote 18018." }, { property: "og:image", content: "https://professoradaquebrada.com.br/og-image.jpg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Professora Nara — A professora da quebrada" },
+      { name: "twitter:image", content: "https://professoradaquebrada.com.br/og-image.jpg" },
     ],
     links: [
       {
