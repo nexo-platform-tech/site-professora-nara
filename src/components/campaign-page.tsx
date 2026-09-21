@@ -2,16 +2,16 @@ import { motion, useAnimationControls, useReducedMotion, type Variants } from "m
 import { useEffect, useState } from "react";
 import { ArrowDown, ArrowRight, AtSign, Instagram, type LucideIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import candidatePhotoAsset from "@/assets/Nara_5.png.asset.json";
-import classroomPhotoAsset from "@/assets/educacao-antirracista.png.asset.json";
-import manifestoPhotoAsset from "@/assets/nara-manifesto.png.asset.json";
-import manifestoGraphicAsset from "@/assets/manifesto-grafico.png.asset.json";
-import naraStickerAsset from "@/assets/figurinha-nara-rede.png.asset.json";
-import fistPencilIconAsset from "@/assets/icone-punho-lapis-creme.png.asset.json";
-import personIconAsset from "@/assets/icone-pessoa.png.asset.json";
-import minasIconAsset from "@/assets/icone-minas.png.asset.json";
-import ellipsesIconAsset from "@/assets/icone-elipses.png.asset.json";
-import bookPencilIconAsset from "@/assets/icone-livro-lapis.png.asset.json";
+import candidatePhotoAsset from "@/assets/Nara_5.png";
+import classroomPhotoAsset from "@/assets/educacao-antirracista.png";
+import manifestoPhotoAsset from "@/assets/nara-manifesto.png";
+import manifestoGraphicAsset from "@/assets/manifesto-grafico.png";
+import naraStickerAsset from "@/assets/figurinha-nara-rede.png";
+import fistPencilIconAsset from "@/assets/icone-punho-lapis-creme.png";
+import personIconAsset from "@/assets/icone-pessoa.png";
+import minasIconAsset from "@/assets/icone-minas.png";
+import ellipsesIconAsset from "@/assets/icone-elipses.png";
+import bookPencilIconAsset from "@/assets/icone-livro-lapis.png";
 
 const rise: Variants = {
   hidden: { opacity: 0, y: 30 },
@@ -123,9 +123,9 @@ function Hero() {
           <div className="absolute left-0 top-8 h-[78%] w-[72%] bg-deep-blue" />
           <div className="absolute bottom-0 right-0 h-[58%] w-[68%] bg-orange" />
           <div className="absolute bottom-8 left-8 right-6 top-0 z-10 overflow-hidden border-2 border-deep-blue/30 sm:left-14 sm:right-10">
-            <img src={candidatePhotoAsset.url} alt="Professora Nara sorrindo, de braços cruzados, em uma rua de Belo Horizonte" className="h-full w-full rounded-none object-cover object-top" />
+            <img src={candidatePhotoAsset} alt="Professora Nara sorrindo, de braços cruzados, em uma rua de Belo Horizonte" className="h-full w-full rounded-none object-cover object-top" />
           </div>
-          <img src={naraStickerAsset.url} alt="Figurinha da campanha com os dizeres “to com Nara!”, “Deputada Estadual” e o número 18018, em letras coloridas com contorno creme e estrelinhas" width={512} height={512} className="absolute right-5 -top-16 z-20 w-32 -rotate-6 drop-shadow-xl sm:-top-20 sm:w-40 lg:right-0 lg:-top-26 lg:w-52" />
+          <img src={naraStickerAsset} alt="Figurinha da campanha com os dizeres “to com Nara!”, “Deputada Estadual” e o número 18018, em letras coloridas com contorno creme e estrelinhas" width={512} height={512} className="absolute right-5 -top-16 z-20 w-32 -rotate-6 drop-shadow-xl sm:-top-20 sm:w-40 lg:right-0 lg:-top-26 lg:w-52" />
         </motion.div>
       </div>
     </section>
@@ -202,9 +202,9 @@ function TriangleMark({ className = "" }: { className?: string }) {
 type Achievement = { kicker: string; title: string; text: string; className: string; icon?: LucideIcon; image?: string };
 
 const achievements: Achievement[] = [
-  { kicker: "Lei", title: "11.818/2025", text: "Um mandato que transforma escuta em política pública.", className: "bg-deep-blue text-cream", image: bookPencilIconAsset.url },
-  { kicker: "Representação", title: "Líder de Bancada", text: "Na Câmara Municipal de Belo Horizonte.", className: "bg-pink text-graphite", image: fistPencilIconAsset.url },
-  { kicker: "Trajetória de votos", title: "2.670 → 5.497", text: "Confiança que cresceu com trabalho presente nos territórios.", className: "bg-orange text-graphite", image: personIconAsset.url },
+  { kicker: "Lei", title: "11.818/2025", text: "Um mandato que transforma escuta em política pública.", className: "bg-deep-blue text-cream", image: bookPencilIconAsset },
+  { kicker: "Representação", title: "Líder de Bancada", text: "Na Câmara Municipal de Belo Horizonte.", className: "bg-pink text-graphite", image: fistPencilIconAsset },
+  { kicker: "Trajetória de votos", title: "2.670 → 5.497", text: "Confiança que cresceu com trabalho presente nos territórios.", className: "bg-orange text-graphite", image: personIconAsset },
 ];
 
 function Mandate() {
@@ -254,7 +254,7 @@ function AntiRacistEducation() {
         <Reveal><p className="mb-4 text-sm font-black uppercase text-cream">Educação antirracista</p><h2 className="text-4xl leading-tight sm:text-6xl"><span className="font-light">Não existe educação de qualidade sem </span><span className="font-black">enfrentamento das desigualdades raciais.</span></h2></Reveal>
         <Reveal className="relative z-10 lg:-my-36 lg:-mr-6">
           <div className="h-[32rem] overflow-hidden border-2 border-cream/30 sm:h-[38rem] lg:h-[44rem]">
-            <img src={classroomPhotoAsset.url} alt="Professora Nara lecionando diante de uma turma em Belo Horizonte" className="h-full w-full rounded-none object-cover object-center" loading="lazy" />
+            <img src={classroomPhotoAsset} alt="Professora Nara lecionando diante de uma turma em Belo Horizonte" className="h-full w-full rounded-none object-cover object-center" loading="lazy" />
           </div>
         </Reveal>
       </div>
@@ -266,8 +266,8 @@ function TerritoryCare() {
   return (
     <section className="bg-cream px-4 pb-16 pt-28 sm:px-6 md:pb-24 md:pt-40 lg:px-10">
       <div className="mx-auto grid max-w-7xl gap-4 lg:grid-cols-[7fr_3fr]">
-        <Reveal className="relative min-h-96 overflow-hidden bg-orange p-8 text-graphite sm:p-12"><div className="flex items-start justify-between gap-4"><p className="text-4xl font-black uppercase leading-none sm:text-5xl lg:text-6xl">Território</p><img src={minasIconAsset.url} alt="" aria-hidden="true" className="size-10 shrink-0 object-contain" /></div><h2 className="mt-12 max-w-3xl text-4xl leading-tight sm:text-6xl"><span className="font-black">Décadas de trabalho </span><span className="font-light">na Regional Nordeste de BH.</span></h2><p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed">É no território, ouvindo de perto cada comunidade, que a política encontra sentido e constrói soluções reais.</p></Reveal>
-        <Reveal className="flex min-h-96 flex-col justify-between bg-orange-red p-8 text-graphite sm:p-10"><div className="flex items-start justify-between gap-4"><p className="text-4xl font-black uppercase leading-none sm:text-5xl lg:text-6xl">Cuidado</p><img src={ellipsesIconAsset.url} alt="" aria-hidden="true" className="h-10 w-auto shrink-0 object-contain" /></div><div><h3 className="mt-10 text-3xl font-black">Defendo também as políticas de cuidado.</h3><p className="mt-5 font-semibold leading-relaxed">Cuidar de quem cuida é reconhecer, proteger e valorizar vidas.</p></div></Reveal>
+        <Reveal className="relative min-h-96 overflow-hidden bg-orange p-8 text-graphite sm:p-12"><div className="flex items-start justify-between gap-4"><p className="text-4xl font-black uppercase leading-none sm:text-5xl lg:text-6xl">Território</p><img src={minasIconAsset} alt="" aria-hidden="true" className="size-10 shrink-0 object-contain" /></div><h2 className="mt-12 max-w-3xl text-4xl leading-tight sm:text-6xl"><span className="font-black">Décadas de trabalho </span><span className="font-light">na Regional Nordeste de BH.</span></h2><p className="mt-7 max-w-2xl text-lg font-medium leading-relaxed">É no território, ouvindo de perto cada comunidade, que a política encontra sentido e constrói soluções reais.</p></Reveal>
+        <Reveal className="flex min-h-96 flex-col justify-between bg-orange-red p-8 text-graphite sm:p-10"><div className="flex items-start justify-between gap-4"><p className="text-4xl font-black uppercase leading-none sm:text-5xl lg:text-6xl">Cuidado</p><img src={ellipsesIconAsset} alt="" aria-hidden="true" className="h-10 w-auto shrink-0 object-contain" /></div><div><h3 className="mt-10 text-3xl font-black">Defendo também as políticas de cuidado.</h3><p className="mt-5 font-semibold leading-relaxed">Cuidar de quem cuida é reconhecer, proteger e valorizar vidas.</p></div></Reveal>
       </div>
     </section>
   );
@@ -280,7 +280,7 @@ function Manifesto() {
       <div className="grid w-full min-h-[600px] lg:grid-cols-2">
         <Reveal className="relative h-[400px] w-full overflow-hidden sm:h-[480px] lg:h-auto lg:min-h-[600px]">
           <img
-            src={manifestoPhotoAsset.url}
+            src={manifestoPhotoAsset}
             alt="Professora Nara sorrindo de braços abertos em frente a uma lagoa, com casas de uma comunidade de Belo Horizonte ao fundo"
             loading="lazy"
             className="absolute inset-0 h-full w-full rounded-none object-cover object-center"
@@ -323,7 +323,7 @@ function Support() {
         </Reveal>
         <Reveal className="-mx-4 flex items-center justify-center bg-cream p-0 sm:-mx-6 lg:relative lg:mx-0 lg:min-h-0 lg:overflow-hidden">
           <img
-            src={manifestoGraphicAsset.url}
+            src={manifestoGraphicAsset}
             alt="Composição tipográfica em blocos coloridos que se encaixam, contendo as palavras-chave da campanha: Cuidado, Escuta, Transformação, Educação, Responsabilidade, Trabalho e Compromisso. Ao centro, a frase 'Nara, uma professora para Minas', finalizando com a palavra Confiança em destaque."
             loading="lazy"
             className="h-auto w-full object-contain lg:absolute lg:inset-0 lg:h-full"
