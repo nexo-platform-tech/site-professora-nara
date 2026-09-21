@@ -1,7 +1,8 @@
 name: Deploy via FTP
 on:
   push:
-    branches: [deploy-locaweb]
+    branches: [main]
+  workflow_dispatch:
 
 jobs:
   deploy:
