@@ -1,0 +1,42 @@
+name: Deploy via FTP
+on:
+  push:
+    branches: [deploy-locaweb]
+
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - run: npm install
+      - run: npm run build
+
+      - name: Gerar index.html
+        env:
+          WRANGLER_SEND_METRICS: "false"
+        run: |
+          npx --yes wrangler@4.136.1 dev --config .output/server/wrangler.json --ip 127.0.0.1 --port 8787 > wrangler.log 2>&1 &
+          WPID=$!
+          ok=0
+          for i in $(seq 1 60); do
+            if curl -fsS http://127.0.0.1:8787/ -o /tmp/index.html; then ok=1; break; fi
+            sleep 2
+          done
+          kill $WPID || true
+          if [ "$ok" != 1 ]; then cat wrangler.log; exit 1; fi
+          grep -q "/assets/" /tmp/index.html
+          cp /tmp/index.html .output/public/index.html
+
+      - name: FTP Deploy Locaweb
+        uses: locaweb/ftp-deploy@1.0.0
+        with:
+          host: ${{ secrets.HOST }}
+          user: ${{ secrets.USER }}
+          password: ${{ secrets.PASS }}
+          localDir: ".output/public"
